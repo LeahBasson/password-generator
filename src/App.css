@@ -1,38 +1,244 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: var(--primary);
+  font-family: "JetBrains Mono", monospace;
 }
 
-.App-link {
-  color: #61dafb;
+/* custom variables */
+:root{
+  --primary: #18171F;
+  --secondary: #E6E5EA;
+  --alternative: #A4FFAF;
+  --awesome: #24232c; 
+  --textColor: #817D92;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app {
+  width: 350px;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: bold;
 }
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: var(--textColor);
+}
+
+.password-display {
+  margin-bottom: 20px;
+}
+
+.password-input {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  background-color: var(--awesome);
+}
+
+.password-input input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 16px;
+  background-color: transparent;
+  color: var(--secondary);
+  font-weight: bold;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.password-input input:focus {
+  box-shadow: none; /* Remove the green glow or any focus box-shadow */
+  outline: none; /* Remove the outline */
+}
+
+.copy-icon {
+  cursor: pointer;
+}
+
+.copy-icon svg {
+  width: 25px; 
+  height: 25px;
+}
+
+.options{
+  background-color: #24232c;
+  padding: 20px;
+  color: var(--secondary); 
+}
+
+.length{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: baseline;
+  margin-bottom: 1rem;
+}
+
+.length label{
+  font-size: 0.8rem !important;
+}
+
+.length span{
+  font-size: 1.3rem !important;
+  color: var(--alternative);
+}
+
+.settings label,
+.checkbox label {
+  font-size: 14px;
+}
+
+/* Slider Track and Thumb Styling */
+input[type="range"] {
+  -webkit-appearance: none; /* Remove default styling */
+  width: 100%;
+  height: 8px;
+  margin-bottom: 20px;
+  background: linear-gradient(to right,#A4FFAF 0%,#A4FFAF 50%,#18171F 50%,#18171F 100% );
+  outline: none;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+/* Thumb (circle) styling */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: var(--secondary); /* Color of the thumb */
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+  background-color: var(--primary); 
+  border: 2px solid var(--alternative);
+}
+
+input[type="range"]:focus {
+  box-shadow: none; /* Remove the green glow or any focus box-shadow */
+  outline: none; /* Remove the outline */
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: var(--secondary); /* Color of the thumb */
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"]::-ms-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: var(--secondary); /* Color of the thumb */
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+/* Custom checkbox styling */
+.checkbox input[type="checkbox"] {
+  -webkit-appearance: none; 
+  -moz-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: var(--awesome); 
+  border: 2px solid var(--secondary); 
+  cursor: pointer;
+  position: relative;
+}
+
+/* Checkbox when checked */
+.checkbox input[type="checkbox"]:checked {
+  background-color: var(--alternative); 
+  border-color: var(--primary); 
+}
+
+/* Creating the checkmark using the :before pseudo-element */
+.checkbox input[type="checkbox"]:checked::before {
+  content: '';
+  position: absolute;
+  top: 2px;   /* Adjusted for centering the tick */
+  left: 6px;  /* Adjusted for centering the tick */
+  width: 4px; /* Size of the tick */
+  height: 8px; /* Size of the tick */
+  border: solid var(--primary); 
+  border-width: 0 3px 3px 0; /* Tick shape */
+  transform: rotate(45deg);
+}
+
+input[type="checkbox"]:focus {
+  box-shadow: none; /* Remove the green glow or any focus box-shadow */
+  outline: none; /* Remove the outline */
+}
+
+.strength {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.strength-bar {
+  height: 10px;
+  flex-grow: 1;
+  border-radius: 5px;
+}
+
+.strength-bar.weak {
+  background-color: red;
+}
+
+.strength-bar.medium {
+  background-color: yellow;
+}
+
+.strength-bar.strong {
+  background-color: green;
+}
+
+.generate-button {
+  width: 100%;
+  background-color: var(--alternative);
+  font-family: "JetBrains Mono", monospace;
+  color: #292b3a;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.generate-button:hover {
+  background-color: transparent;
+  color: var(--alternative);
+  border: 1px solid var(--alternative);
+}
+
+.generate-button:hover span svg path {
+  fill: var(--alternative); /* Green color for the arrow icon on hover */
+}
+
+
