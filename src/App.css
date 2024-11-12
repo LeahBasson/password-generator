@@ -25,8 +25,6 @@ body {
 
 .app {
   width: 350px;
-  font-family: "JetBrains Mono", monospace;
-  font-weight: bold;
 }
 
 h1 {
@@ -45,6 +43,7 @@ h1 {
   align-items: center;
   padding: 8px 10px;
   background-color: var(--awesome);
+  position: relative;
 }
 
 .password-input input {
@@ -63,8 +62,27 @@ h1 {
   outline: none; /* Remove the outline */
 }
 
+.copy-section {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.copied-message {
+  color: var(--alternative);
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+  margin-right: 28px;
+}
+
 .copy-icon {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: absolute;
+  right: 10px;
 }
 
 .copy-icon svg {
@@ -241,4 +259,49 @@ input[type="checkbox"]:focus {
   fill: var(--alternative); /* Green color for the arrow icon on hover */
 }
 
+/* Media query */
+@media (width < 999px)
+{
+  .app {
+    width: 260px;
+  }
 
+  /* .copied-message {
+    display: none;
+  } */
+
+  .password-input input {
+    border: none;
+    outline: none;
+    flex: 0;
+    font-size: 16px;
+    background-color: transparent;
+    color: var(--secondary);
+    font-weight: bold;
+    font-family: "JetBrains Mono", monospace;
+  }
+
+  .copy-section {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+  }
+  
+  .copied-message {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    position: absolute;
+    right: 10px;
+  }
+  
+  .copy-icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    position: absolute;
+    right: 10px;
+  }
+
+}
