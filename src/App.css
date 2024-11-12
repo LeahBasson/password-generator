@@ -24,7 +24,7 @@ body {
 }
 
 .app {
-  width: 350px;
+  width: 400px;
 }
 
 h1 {
@@ -294,10 +294,10 @@ input[type="checkbox"]:focus {
 }
 
 /* Media query */
-@media (width < 999px)
+@media (width < 400px)
 {
   .app {
-    width: 260px;
+    width: 300px;
   }
 
   .password-input input {
