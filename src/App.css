@@ -58,8 +58,8 @@ h1 {
 }
 
 .password-input input:focus {
-  box-shadow: none; /* Remove the green glow or any focus box-shadow */
-  outline: none; /* Remove the outline */
+  box-shadow: none; 
+  outline: none; 
 }
 
 .copy-section {
@@ -88,6 +88,10 @@ h1 {
 .copy-icon svg {
   width: 25px; 
   height: 25px;
+}
+
+.copy-icon:hover path {
+  fill: var(--secondary); 
 }
 
 .options{
@@ -148,8 +152,8 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 
 input[type="range"]:focus {
-  box-shadow: none; /* Remove the green glow or any focus box-shadow */
-  outline: none; /* Remove the outline */
+  box-shadow: none; 
+  outline: none; 
 }
 
 input[type="range"]::-moz-range-thumb {
@@ -163,7 +167,7 @@ input[type="range"]::-moz-range-thumb {
 input[type="range"]::-ms-thumb {
   width: 20px;
   height: 20px;
-  background-color: var(--secondary); /* Color of the thumb */
+  background-color: var(--secondary); 
   border-radius: 50%;
   cursor: pointer;
 }
@@ -194,47 +198,77 @@ input[type="range"]::-ms-thumb {
   border-color: var(--primary); 
 }
 
-/* Creating the checkmark using the :before pseudo-element */
 .checkbox input[type="checkbox"]:checked::before {
   content: '';
   position: absolute;
-  top: 2px;   /* Adjusted for centering the tick */
-  left: 6px;  /* Adjusted for centering the tick */
-  width: 4px; /* Size of the tick */
-  height: 8px; /* Size of the tick */
+  top: 2px;   
+  left: 6px;  
+  width: 4px; 
+  height: 8px; 
   border: solid var(--primary); 
   border-width: 0 3px 3px 0; /* Tick shape */
   transform: rotate(45deg);
 }
 
 input[type="checkbox"]:focus {
-  box-shadow: none; /* Remove the green glow or any focus box-shadow */
-  outline: none; /* Remove the outline */
+  box-shadow: none; 
+  outline: none; 
 }
 
 .strength {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  justify-content: space-between;
+  gap: 15px;
   margin-top: 10px;
+  background-color: var(--primary);
+  padding: 10px;
+}
+
+.strength-cal{
+  display: flex;
+  gap: 15px;
+}
+
+.strength-bar-container {
+  display: flex;
+  gap: 4px;
 }
 
 .strength-bar {
-  height: 10px;
-  flex-grow: 1;
-  border-radius: 5px;
+  width: 7px;
+  height: 20px;
+  border: 1px solid var(--secondary);
+}
+
+.strength-bar.too-weak {
+  background-color: #F64A4A;
+  border: none;
 }
 
 .strength-bar.weak {
-  background-color: red;
+  background-color: #FB7C58;
+  border: none;
 }
 
 .strength-bar.medium {
-  background-color: yellow;
+  background-color: #F8CD65;
+  border: none;
 }
 
 .strength-bar.strong {
-  background-color: green;
+  background-color: #A4FFAF;
+  border: none;
+}
+
+.strength-text {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.strength label{
+  color: var(--textColor);
+  font-weight: bold;
+  font-size: 0.9rem;
 }
 
 .generate-button {
@@ -256,7 +290,7 @@ input[type="checkbox"]:focus {
 }
 
 .generate-button:hover span svg path {
-  fill: var(--alternative); /* Green color for the arrow icon on hover */
+  fill: var(--alternative);
 }
 
 /* Media query */
@@ -265,10 +299,6 @@ input[type="checkbox"]:focus {
   .app {
     width: 260px;
   }
-
-  /* .copied-message {
-    display: none;
-  } */
 
   .password-input input {
     border: none;
@@ -302,6 +332,11 @@ input[type="checkbox"]:focus {
     gap: 0px;
     position: absolute;
     right: 10px;
+  }
+
+  .strength-cal{
+    display: flex;
+    gap: 10px;
   }
 
 }
